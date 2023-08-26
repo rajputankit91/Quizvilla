@@ -1,12 +1,3 @@
-class HeadingModel {
-    constructor() {
-        this.heading = "Hello";
-    }
-}
-
-export { HeadingModel };
-
-// 
 class QuizModel{
     constructor(){
         this.quizData = [

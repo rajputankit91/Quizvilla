@@ -1,0 +1,95 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(116, 235, 213, 0.6);
+    /* background-image: radial-gradient( circle farthest-corner at 22.4% 21.7%, rgba(4,189,228,1) 0%, rgba(2,83,185,1) 100.2% ); */
+}
+
+#container{
+    position: relative;
+    border: 1px solid;
+    min-width: 70%;
+    min-height: 70%;
+    /* padding: 20px; */
+    background-image: linear-gradient(to bottom right, #FDFCFB, #E2D1C3);
+    border-radius: 05px;
+}
+
+#app h1{
+    letter-spacing: 15px;
+    text-transform: uppercase;
+    border: 1px solid;
+    border-top-right-radius: 05px;
+    border-top-left-radius: 05px;
+    font-size: 80px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    background: linear-gradient(to left, #74ebd5, #9face6);
+}
+
+#app h3{
+    margin: 20px 10px;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#wrapper{
+    margin: 10px 20px;
+    padding: 10px;
+    position: fixed;
+    bottom: 170px;
+}
+
+button{
+    font-size: 25px;
+    /* background-color: gray; */
+    background: linear-gradient(to left, #74ebd5, #9face6);
+    padding: 20px;
+    color: white;
+    border-radius: 10px; 
+    border: none;   
+}
+
+button:hover{
+    background: linear-gradient(to right, #74ebd5, #9face6);
+    background-color: black;
+    /* color: white; */
+    transition: 0.5s all;
+    cursor: pointer;
+    border: none;
+}
+
+label{
+    position: relative;
+    margin: 20px;
+    font-size: 20px;
+    /* border: 1px solid; */
+    display: inline-block;
+    min-width: 45%;
+    min-height: 2em;
+}
+
+label:hover{
+    background-color: rgba(116, 235, 213, 0.6);
+    cursor: pointer;    
+}
+
+.option input{
+    width: 22px;
+    height: 22px;
+    margin: 10px;
+}
+
+span{
+    position: absolute;
+    top: 10px;
+}

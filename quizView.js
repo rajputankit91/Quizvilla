@@ -25,7 +25,7 @@ export class QuizView{
         <h1>Quiz</h1>
         <h3>${this.model.questions[this.index].question}</h3>
         ${this.model.questions[this.index].options.map(item =>{
-            return `<label class='option'><input value = '${item}' name = 'input' type = 'radio'>${item}</input></label>`
+            return `<label class='option'><input value = '${item}' name = 'input' type = 'radio'><span>${item}</span></label>`
         }).join('')}        
         `;
 
