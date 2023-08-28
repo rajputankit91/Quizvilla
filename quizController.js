@@ -16,7 +16,6 @@ export class Controller {
         // this.view.render();
         this.view.bindNextQuestionButton();
         this.view.bindPreQuestionButton();
+        this.view.bindSubmitBtn();
     }
-   
-    
 }

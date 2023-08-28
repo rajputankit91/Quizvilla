@@ -9,17 +9,17 @@ export class QuizView{
         this.render();
         this.allAnswer = [];
         this.nextQuestionBtn = document.getElementById('nextQuestionBtn');
-        // console.log(this.question.options);
 
         this.selectedOption;
         this.renderBtn();
-        // this.bindNextQuestionButton(this.nextQuestionBtn);
-
+        this.right = 0;
+        this.wrong = 0;
+        this.total = this.model.questions.length;
     }
     
     render(){
         let app = document.querySelector('#app');
-        console.log(app);
+        // console.log(app);
         app.innerHTML = '';
         app.innerHTML = `
         <h1>Quiz</h1>
@@ -27,9 +27,7 @@ export class QuizView{
         ${this.model.questions[this.index].options.map(item =>{
             return `<label class='option'><input value = '${item}' name = 'input' type = 'radio'><span>${item}</span></label>`
         }).join('')}        
-        `;
-
-        
+        `;   
     }
 
     renderBtn(){
@@ -37,17 +35,18 @@ export class QuizView{
         buttonDiv.classList.add('buttons');
         console.log(buttonDiv);
 
-        buttonDiv.innerHTML = `<button class='button' id = 'preQuestionBtn'>Previous Question</button>
-                                <button class='button' id = 'nextQuestionBtn'>Next Question</button>
-                                <button class='button' id = 'submitQuizBtn'>Submit Quiz</button>
-                            `;
+        buttonDiv.innerHTML = `
+        <button class='button' id = 'preQuestionBtn'>Previous Question</button>
+        <button class='button' id = 'nextQuestionBtn'>Next Question</button>
+        <button class='button' id = 'submitQuizBtn'>Submit Quiz</button>
+        `;
     }
     
     bindNextQuestionButton() {
-        console.log(this.model);
+        // console.log(this.model);
 
         nextQuestionBtn.addEventListener('click', () =>{
-            console.log('clicked');
+            // console.log('clicked');
             
             this.selectedOption = document.querySelector('input:checked');
             console.log(this.selectedOption);
@@ -62,8 +61,10 @@ export class QuizView{
 
                 if(this.answer == this.model.questions[this.index].options[this.model.questions[this.index].ans]){
                     this.right++;
+                    console.log(this.right);
                 } else {
                     this.wrong++;
+                    console.log(this.wrong);
                 }
 
                 this.index++;
@@ -73,13 +74,13 @@ export class QuizView{
                     this.selectedOption.checked = false;
                     console.log(this.model.questions.length);
                     this.render();
-                    console.log(this.index);
+                    // console.log(this.index);
                 } else {
-                    console.log(this.index);
+                    // console.log(this.index);
                 }
 
-                console.log(this.model.questions.length-1);
-                console.log(this.index);
+                // console.log(this.model.questions.length-1);
+                // console.log(this.index);
                 if(this.index == this.model.questions.length-1){
                     let submitButton = document.getElementById('submitQuizBtn');
                     submitButton.style.display = 'inline-block';
@@ -123,7 +124,6 @@ export class QuizView{
                 previousButton.style.display = 'none';
             }
             if(this.index == this.model.questions.length-2){
-
                 let nextButton = document.getElementById('nextQuestionBtn');
                 nextButton.style.display = 'inline-block';
 
@@ -132,6 +132,17 @@ export class QuizView{
             }
         })
     }
-
     // bindSubmitQuizButton
+
+    bindSubmitBtn(){
+        submitQuizBtn.addEventListener('click',() =>{
+            console.log('clicked');
+            let result = document.getElementById('body');
+            result.innerHTML = `
+            <h3>Thank You for playing quiz!</h3>
+            <h2>${this.right} / ${this.total} are correct</h2>
+            `;
+            result.classList.add('result');
+        })
+    }
 }
