@@ -37,9 +37,9 @@ export class QuizView{
         buttonDiv.classList.add('buttons');
         console.log(buttonDiv);
 
-        buttonDiv.innerHTML = `<button id = 'preQuestionBtn'>Previous Question</button>
-                                <button id = 'nextQuestionBtn'>Next Question</button>
-                                <button id = 'submitQuizBtn'>Submit Quiz</button>
+        buttonDiv.innerHTML = `<button class='button' id = 'preQuestionBtn'>Previous Question</button>
+                                <button class='button' id = 'nextQuestionBtn'>Next Question</button>
+                                <button class='button' id = 'submitQuizBtn'>Submit Quiz</button>
                             `;
     }
     
