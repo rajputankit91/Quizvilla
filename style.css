@@ -51,12 +51,11 @@ body{
 
 button{
     font-size: 25px;
-    /* background-color: gray; */
     background: linear-gradient(to left, #74ebd5, #9face6);
     padding: 20px;
     color: white;
-    border-radius: 10px; 
-    border: none;   
+    border: none;
+    width: 100%;
 }
 
 #preQuestionBtn , #submitQuizBtn{
