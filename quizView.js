@@ -78,6 +78,21 @@ export class QuizView{
                     console.log(this.index);
                 }
 
+                console.log(this.model.questions.length-1);
+                console.log(this.index);
+                if(this.index == this.model.questions.length-1){
+                    let submitButton = document.getElementById('submitQuizBtn');
+                    submitButton.style.display = 'inline-block';
+
+                    let nextButton = document.getElementById('nextQuestionBtn');
+                    nextButton.style.display = 'none';
+                    console.log(submitButton,'================submit==============');
+                }
+                if(this.index > 0){
+                    let previousButton = document.getElementById('preQuestionBtn');
+                    previousButton.style.display = 'inline-block';
+                }
+
             } else {
                 alert('please select the option');
             }
@@ -101,6 +116,19 @@ export class QuizView{
                 } else {
                     console.log('not checked');
                 }
+            }
+
+            if(this.index == 0){
+                let previousButton = document.getElementById('preQuestionBtn');
+                previousButton.style.display = 'none';
+            }
+            if(this.index == this.model.questions.length-2){
+
+                let nextButton = document.getElementById('nextQuestionBtn');
+                nextButton.style.display = 'inline-block';
+
+                let submitButton = document.getElementById('submitQuizBtn');
+                submitButton.style.display = 'none';
             }
         })
     }
