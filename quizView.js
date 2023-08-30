@@ -49,15 +49,15 @@ export class QuizView{
             // console.log('clicked');
             
             this.selectedOption = document.querySelector('input:checked');
-            console.log(this.selectedOption);
+            // console.log(this.selectedOption);
 
             if(this.selectedOption){
                 this.model.questions[this.index].selectedOption = 'true';
                 this.answer = this.selectedOption.value;
-                console.log(this.answer);
+                // console.log(this.answer);
 
                 this.allAnswer.push(this.answer);
-                console.log(this.allAnswer);
+                // console.log(this.allAnswer);
 
                 if(this.answer == this.model.questions[this.index].options[this.model.questions[this.index].ans]){
                     this.right++;
@@ -79,9 +79,13 @@ export class QuizView{
                     // console.log(this.index);
                 }
 
-                // console.log(this.model.questions.length-1);
-                // console.log(this.index);
-                if(this.index == this.model.questions.length-1){
+                if(this.index == this.model.questions.length){
+                    let appDiv = document.getElementById('app');
+                    appDiv.innerHTML = '';
+                    let confermationDiv = document.createElement('div');
+                    confermationDiv.innerHTML = 'Do you want to submit the Quizz';
+
+                    appDiv.append(confermationDiv);
                     let submitButton = document.getElementById('submitQuizBtn');
                     submitButton.style.display = 'inline-block';
 
@@ -106,19 +110,20 @@ export class QuizView{
         previousBtn.addEventListener('click',(selectedOption) =>{
             this.index--;
             this.render();
-            let currentOptions = document.querySelectorAll('.option');
-            for(let i = 0;i<currentOptions.length;i++){
+            selectedOption = document.getElementsByName('input');
+            console.log(selectedOption);
+            for(let i = 0;i<selectedOption.length;i++){
+                console.log(selectedOption[i]);
                 console.log(this.allAnswer);
-                if(this.allAnswer.includes(currentOptions[i].innerText)){
-                    console.log(currentOptions[i].innerText);
+                if(this.allAnswer.includes(selectedOption[i].defaultValue)){
+                    console.log(selectedOption[i].innerText);
 
-                    currentOptions[i].checked = true;
-                    console.log(currentOptions[i]);
+                    selectedOption[i].checked = true;
+                    console.log(selectedOption[i]);
                 } else {
                     console.log('not checked');
                 }
             }
-
             if(this.index == 0){
                 let previousButton = document.getElementById('preQuestionBtn');
                 previousButton.style.display = 'none';
@@ -136,13 +141,23 @@ export class QuizView{
 
     bindSubmitBtn(){
         submitQuizBtn.addEventListener('click',() =>{
-            console.log('clicked');
             let result = document.getElementById('body');
             result.innerHTML = `
             <h3>Thank You for playing quiz!</h3>
             <h2>${this.right} / ${this.total} are correct</h2>
             `;
             result.classList.add('result');
+
+            if(this.right == this.total){
+
+            } else if (this.right == this.total/2){
+                result.innerHTML += `<p>your score is </p>`
+
+            } else if (this.right == this.total/3){
+
+            } else {
+                
+            }
         })
     }
 }
