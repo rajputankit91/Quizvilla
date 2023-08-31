@@ -138,6 +138,7 @@ span{
         margin: 10px;
         border: 1px solid;
         min-width: 90%;
+        height: auto;
         background-color: rgb(210, 203, 203);
         border-radius: 10px;
     }
