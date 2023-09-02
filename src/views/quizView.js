@@ -1,4 +1,4 @@
-import { QuizModel } from "./quizModel";
+import { QuizModel } from "../models/quizModel";
 
 export class QuizView{
     constructor(){
@@ -19,7 +19,7 @@ export class QuizView{
     
     render(){
         let app = document.querySelector('#app');
-        // console.log(app);
+        console.log(app);
         app.innerHTML = '';
         app.innerHTML = `
         <h1>Quiz</h1>
@@ -43,21 +43,14 @@ export class QuizView{
     }
     
     bindNextQuestionButton() {
-        // console.log(this.model);
-
-        nextQuestionBtn.addEventListener('click', () =>{
-            // console.log('clicked');
-            
+        nextQuestionBtn.addEventListener('click', () =>{            
             this.selectedOption = document.querySelector('input:checked');
-            // console.log(this.selectedOption);
 
             if(this.selectedOption){
                 this.model.questions[this.index].selectedOption = 'true';
                 this.answer = this.selectedOption.value;
-                // console.log(this.answer);
 
                 this.allAnswer.push(this.answer);
-                // console.log(this.allAnswer);
 
                 if(this.answer == this.model.questions[this.index].options[this.model.questions[this.index].ans]){
                     this.right++;
@@ -74,16 +67,16 @@ export class QuizView{
                     this.selectedOption.checked = false;
                     console.log(this.model.questions.length);
                     this.render();
-                    // console.log(this.index);
                 } else {
-                    // console.log(this.index);
                 }
 
                 if(this.index == this.model.questions.length){
                     let appDiv = document.getElementById('app');
                     appDiv.innerHTML = '';
+                    appDiv.classList.add('confirmAppDiv');
                     let confermationDiv = document.createElement('div');
-                    confermationDiv.innerHTML = 'Do you want to submit the Quizz';
+                    confermationDiv.classList.add('confirm');
+                    confermationDiv.innerHTML = 'Do you want to submit the Quizz ?';
 
                     appDiv.append(confermationDiv);
                     let submitButton = document.getElementById('submitQuizBtn');
@@ -142,22 +135,32 @@ export class QuizView{
     bindSubmitBtn(){
         submitQuizBtn.addEventListener('click',() =>{
             let result = document.getElementById('body');
-            result.innerHTML = `
-            <h3>Thank You for playing quiz!</h3>
-            <h2>${this.right} / ${this.total} are correct</h2>
-            `;
-            result.classList.add('result');
-
+            result.innerHTML = '';
             if(this.right == this.total){
-
+                let img = `<img src="https://t4.ftcdn.net/jpg/04/22/21/39/360_F_422213944_v3LI3VIVCr3lGCxkYojkw7P63kpMkgNW.jpg" alt="Girl in a jacket" width="200" height="200">`
+                console.log(img);
+                result.innerHTML = `${img}`;
             } else if (this.right == this.total/2){
-                result.innerHTML += `<p>your score is </p>`
 
             } else if (this.right == this.total/3){
 
             } else {
                 
             }
+
+            result.innerHTML += `
+            <h3>Thank You for playing quiz!</h3>
+            <h2>${this.right} / ${this.total} are correct</h2>
+            <button class = 'playAgain'>Play again</button>
+            `;
+            result.classList.add('result');
+
+            let playagainBtn = document.querySelector('.playAgain');
+            console.log(playagainBtn);
+            playagainBtn.addEventListener('click',() =>{
+                alert('Please refresh the page');
+            })
+            
         })
     }
 }

@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+.homeView{
+    display: flex;
+    flex-direction: column;
+}
+
 body{
     display: flex;
     justify-content: center;
@@ -18,12 +23,49 @@ body{
     height: 100%;
 }
 
+.welcomeDiv{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('https://wallpaperaccess.com/full/2384075.jpg');
+}
+
+.welcomeDiv h1{
+    margin-bottom: 50%;
+}
+
+#startQuizBtn{
+    width: 200px;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 8px;
+}
+
 #container{
     position: relative;
-    max-width: 70%;
+    width: 70%;
     min-height: 70%;
     background: rgba(217, 214, 228, 0.12);
     border-radius: 05px;
+    display: none;
+}
+
+.confirmAppDiv{
+    display: flex;
+    justify-content: center;align-items: center;
+}
+
+.confirm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 400px;
+    font-size: 28px;
+    /* border: 1px solid; */
 }
 
 #app h1{
@@ -49,6 +91,7 @@ body{
     padding: 10px;
     position: fixed;
     bottom: 170px;
+    /* display: inline; */
 }
 
 button{
@@ -56,7 +99,7 @@ button{
     background: wheat;
     padding: 20px;
     border: none;
-    width: 100%;
+    /* width: 100%; */
 }
 
 #preQuestionBtn , #submitQuizBtn{
@@ -118,7 +161,7 @@ span{
     }
 
     #app h3{
-        font-size: 18px;
+        font-size: 22px;
         background-color: rgb(202, 203, 203);
         min-width:90%;
         min-height: 25%;
@@ -130,7 +173,7 @@ span{
     #app h1{
         background: none;
         color: white;
-        font-size: 45px;
+        font-size: 55px;
         margin-top: 25px;
         border: none;
     }
@@ -157,5 +200,14 @@ span{
         min-width:90%;
         height: 70%;
         margin-top: -20px;
+    }
+    .playAgain{
+        width: 70%;
+        padding: 5px;
+        margin-top: 50px;
+        border-radius: 10px;
+    }
+    button{
+        width: 100%;
     }
 }
