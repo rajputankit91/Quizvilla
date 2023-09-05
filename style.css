@@ -34,10 +34,11 @@ body{
 }
 
 .welcomeDiv h1{
-    margin-bottom: 50%;
+    margin-bottom: 15%;
+    justify-content: center;
 }
 
-#startQuizBtn{
+#startQuizBtn,#createQuizBtn,#creaeQuestionBtn{
     width: 200px;
     margin-top: 20px;
     padding: 10px;
@@ -56,6 +57,10 @@ body{
 .confirmAppDiv{
     display: flex;
     justify-content: center;align-items: center;
+}
+
+#formContainer{
+    width: 50%;
 }
 
 .confirm{

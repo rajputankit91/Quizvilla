@@ -4,12 +4,10 @@ export class QuizView{
     constructor(){
         this.model = new QuizModel();
         this.index = 0;
-        console.log(this.model.questions.length);
         this.question = this.model.getCurrentQuestion();
         this.render();
         this.allAnswer = [];
         this.nextQuestionBtn = document.getElementById('nextQuestionBtn');
-
         this.selectedOption;
         this.renderBtn();
         this.right = 0;
@@ -33,7 +31,6 @@ export class QuizView{
     renderBtn(){
         let buttonDiv = document.getElementById('wrapper');
         buttonDiv.classList.add('buttons');
-        console.log(buttonDiv);
 
         buttonDiv.innerHTML = `
         <button class='button' id = 'preQuestionBtn'>Previous Question</button>
@@ -54,10 +51,8 @@ export class QuizView{
 
                 if(this.answer == this.model.questions[this.index].options[this.model.questions[this.index].ans]){
                     this.right++;
-                    console.log(this.right);
                 } else {
                     this.wrong++;
-                    console.log(this.wrong);
                 }
 
                 this.index++;
@@ -99,20 +94,14 @@ export class QuizView{
 
     bindPreQuestionButton() {
         const previousBtn = document.querySelector('#preQuestionBtn')
-        console.log(previousBtn);
         previousBtn.addEventListener('click',(selectedOption) =>{
             this.index--;
             this.render();
             selectedOption = document.getElementsByName('input');
             console.log(selectedOption);
             for(let i = 0;i<selectedOption.length;i++){
-                console.log(selectedOption[i]);
-                console.log(this.allAnswer);
                 if(this.allAnswer.includes(selectedOption[i].defaultValue)){
-                    console.log(selectedOption[i].innerText);
-
                     selectedOption[i].checked = true;
-                    console.log(selectedOption[i]);
                 } else {
                     console.log('not checked');
                 }
@@ -156,11 +145,9 @@ export class QuizView{
             result.classList.add('result');
 
             let playagainBtn = document.querySelector('.playAgain');
-            console.log(playagainBtn);
             playagainBtn.addEventListener('click',() =>{
                 alert('Please refresh the page');
-            })
-            
+            })           
         })
     }
 }

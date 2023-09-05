@@ -5,7 +5,6 @@ export class Controller {
     constructor(){
         this.model = new QuizModel();
         this.view = new QuizView();
-        // this.renderQuestion();
     }
 
     renderQuestion() {
