@@ -1,6 +1,6 @@
 class QuizModel{
     constructor(){
-        this.quizData = [
+        this.javaScriptQuiz = [
             {
                 'question': 'Q1 : Which of the following keywords is used to define a variable in Javascript?',
                 'id': 'ques1',
